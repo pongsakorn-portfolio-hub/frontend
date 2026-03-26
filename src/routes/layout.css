@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/* Class-based dark mode — triggered by .dark on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--font-sans: 'Inter', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+html {
+	scroll-behavior: smooth;
+	background-color: #f8fafc;
+	color: #0f172a;
+	font-family: var(--font-sans);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html.dark {
+	background-color: #050914;
+	color: #e2e8f0;
+}
+
+::selection {
+	background: rgba(6, 182, 212, 0.25);
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+::-webkit-scrollbar-track {
+	background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+	background: #cbd5e1;
+	border-radius: 3px;
+}
+html.dark ::-webkit-scrollbar-track {
+	background: #050914;
+}
+html.dark ::-webkit-scrollbar-thumb {
+	background: #1e293b;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+	background: #334155;
+}
